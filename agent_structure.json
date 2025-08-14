@@ -1,0 +1,41 @@
+{
+  "name": "MainAgent",
+  "instructions": "Agent principal orchestrant toute la chaîne.",
+  "tools": [],
+  "handoffs": [
+    {
+      "name": "ParseQuestionAgent",
+      "instructions": "Analyse la question en langage naturel et identifie tables + colonnes pertinentes.",
+      "tools": [],
+      "handoffs": [
+        {
+          "name": "GetUniqueNounsAgent",
+          "instructions": "Extrait les noms/valeurs textuelles exactes des colonnes identifiées.",
+          "tools": [],
+          "handoffs": [
+            {
+              "name": "GenerateSqlAgent",
+              "instructions": "Génère la requête SQL brute basée sur le contexte.",
+              "tools": [],
+              "handoffs": [
+                {
+                  "name": "ValidateSqlAgent",
+                  "instructions": "Vérifie la syntaxe SQL et corrige si besoin.",
+                  "tools": [],
+                  "handoffs": [
+                    {
+                      "name": "ChooseVisualizationAgent",
+                      "instructions": "Choisit le type de visualisation des résultats.",
+                      "tools": [],
+                      "handoffs": []
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
